@@ -25,6 +25,9 @@ GEM
       rack-accept
       rack-mount
       virtus
+    grape-entity (0.3.0)
+      activesupport
+      multi_json (>= 1.3.2)
     hashie (2.0.5)
     i18n (0.6.1)
     json (1.7.7)
@@ -37,6 +40,7 @@ GEM
       rack (>= 1.0.0)
     rack-protection (1.5.0)
       rack
+    redis (3.0.4)
     sinatra (1.4.2)
       rack (~> 1.5, >= 1.5.2)
       rack-protection (~> 1.4)
@@ -52,5 +56,7 @@ PLATFORMS
 DEPENDENCIES
   debugger (~> 1.3.0)
   grape
+  grape-entity
   json (~> 1.7.7)
+  redis
   sinatra
