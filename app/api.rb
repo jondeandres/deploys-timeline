@@ -12,6 +12,7 @@ class API < Grape::API
       requires :branch, type: String
       requires :environment, type: String
       requires :sha, type: String
+      optional :country, type: String
       optional :author, type: String
     end
 
