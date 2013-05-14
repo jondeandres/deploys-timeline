@@ -1,6 +1,7 @@
 require 'ostruct'
 require 'redis'
 require 'grape-entity'
+require 'deploy_distributor'
 
 class Deploy < OpenStruct
   def self.create(attrs = {})
@@ -9,7 +10,9 @@ class Deploy < OpenStruct
     attrs[:date] = Time.now.utc
     redis.hmset(key_for(new_id), *attrs)
 
-    new(attrs)
+    instance = new(attrs)
+    DeployDistributor.new(instance).distribute
+    instance
   end
 
   def self.redis
