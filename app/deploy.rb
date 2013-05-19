@@ -19,12 +19,16 @@ class Deploy < OpenStruct
     @redis ||= ::Redis.new
   end
 
+  def prefix
+    "deploys"
+  end
+
   def self.key_for(id)
-    "deploys:#{id}"
+    "#{prefix}:#{id}"
   end
 
   def self.count_key
-    "deploys:count"
+    "#{prefix}:count"
   end
 
   class Entity < Grape::Entity

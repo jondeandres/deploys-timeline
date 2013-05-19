@@ -30,10 +30,18 @@ class DeployDistributor
     @redis ||= ::Redis.new
   end
 
+  def use_combination?(combination, at)
+    combination.map{|attr| deploy.send(attr) }.all?
+  end
+
+  def prefix
+    "deploys"
+  end
+
   def sets_to_enqueue
-    combinations.inject([]) do |sets, combination|
-      if combination.map{|attr| deploy.send(attr) }.all?
-        sets << combination.inject("deploys") do |acc, attr|
+    [prefix] + combinations.inject([]) do |sets, combination|
+      if use_combination?(combination)
+        sets << combination.inject(prefix) do |acc, attr|
           value = deploy.send(attr)
           acc += ":#{attr}:#{value}"
           acc
