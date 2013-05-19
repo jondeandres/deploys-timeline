@@ -15,11 +15,15 @@ class Deploy < OpenStruct
     instance
   end
 
+  def self.find(id)
+    new(redis.hgetall(key_for(id)))
+  end
+
   def self.redis
     @redis ||= ::Redis.new
   end
 
-  def prefix
+  def self.prefix
     "deploys"
   end
 
