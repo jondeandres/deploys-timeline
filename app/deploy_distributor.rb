@@ -30,7 +30,7 @@ class DeployDistributor
     @redis ||= ::Redis.new
   end
 
-  def use_combination?(combination, at)
+  def use_combination?(combination)
     combination.map{|attr| deploy.send(attr) }.all?
   end
 
