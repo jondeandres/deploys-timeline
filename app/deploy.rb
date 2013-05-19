@@ -36,6 +36,7 @@ class Deploy < OpenStruct
   end
 
   class Entity < Grape::Entity
+    root 'deploys', 'deploy'
     expose :id, :project, :environment, :branch,
            :sha, :date, :author, :country
   end
