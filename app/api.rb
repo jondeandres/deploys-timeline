@@ -1,9 +1,24 @@
 require 'grape'
 require 'deploy'
+require 'deploy_finder'
+require 'deploy_distributor'
 
 class API < Grape::API
   format :json
   prefix 'api'
+
+  def self.each_deploy_path(&block)
+    get(&block)
+
+    DeployDistributor.combinations.each do |combination|
+      path = combination.inject("") do |path_acc, criteria|
+        path_acc += "/#{criteria}/:#{criteria}"
+        path_acc
+      end
+
+      get(path, &block)
+    end
+  end
 
   namespace :deploys do
     desc 'Creates a deploy'
@@ -18,7 +33,12 @@ class API < Grape::API
 
     post do
       deploy = Deploy.create(params)
-      present deploy
+      present(deploy)
+    end
+
+    each_deploy_path do
+      deploys = DeployFinder.new(params).result
+      present(deploys)
     end
   end
 end
