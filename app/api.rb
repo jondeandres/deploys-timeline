@@ -20,6 +20,12 @@ class API < Grape::API
     end
   end
 
+  namespace :filters do
+    get do
+      []
+    end
+  end
+
   namespace :deploys do
     desc 'Creates a deploy'
     params do

@@ -1,5 +1,5 @@
 function DeployFiltersCtrl($scope, $http) {
-	$http.get('/filters').success(function(data) {
+	$http.get(api_path('filters')).success(function(data) {
 		$scope.countries = data.countries;
 		$scope.environments = data.environments;
 		$scope.projects = data.projects;
