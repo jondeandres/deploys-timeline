@@ -1,13 +1,13 @@
 class DeployDistributor
   attr_reader :deploy
 
-  def self.criterias
-    @criterias ||= [:country, :project, :environment]
+  def self.filters
+    @filters ||= [:country, :project, :environment]
   end
 
   def self.combinations
-    @combinations ||= (1..criterias.length).inject([]) do  |acc, i|
-      acc += criterias.combination(i).to_a
+    @combinations ||= (1..filters.length).inject([]) do  |acc, i|
+      acc += filters.combination(i).to_a
       acc
     end
   end

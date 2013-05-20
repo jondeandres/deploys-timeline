@@ -33,7 +33,7 @@ class DeployFinder
   end
 
   def set
-    DeployDistributor.criterias.inject(prefix) do |set_acc, criteria|
+    DeployDistributor.filters.inject(prefix) do |set_acc, criteria|
       value = params[criteria]
       set_acc += ":#{criteria}:#{value}" if value
 
