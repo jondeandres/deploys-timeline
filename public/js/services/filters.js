@@ -2,6 +2,8 @@ Deploys.factory('$filters', ['$api', function($api) {
 	return {
 		types: [],
 		filters: {},
+		active_filters: {},
+
 		fetch: function() {
 			var result = {};
 

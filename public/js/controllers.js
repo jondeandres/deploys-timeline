@@ -1,6 +1,8 @@
 function DeployFiltersCtrl($scope, $filters) {
 	$scope.filters = $filters.fetch();
-	$scope.updatePath = function(type, active_filters) {
+	$scope.active_filters = $filters.active_filters;
+
+	$scope.updatePath = function(active_filters) {
 
 	};
 }
