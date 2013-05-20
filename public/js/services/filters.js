@@ -6,13 +6,14 @@ Deploys.factory('$filters', ['$api', function($api) {
 
 		fetch: function() {
 			var result = {};
+      var that = this;
 
 			$api.get('filters').success(function(data) {
-				this.filters = data.filters;
-				this.types = data.types;
+				that.filters = data.filters;
+				that.types = data.types;
 
-				_.each(_.keys(filters), function(type) {
-					collection = filters[type];
+				_.each(_.keys(that.filters), function(type) {
+					collection = that.filters[type];
 
 					if (collection != undefined) {
 						result[type] = _.map(collection, function(filter) {
@@ -22,6 +23,18 @@ Deploys.factory('$filters', ['$api', function($api) {
 				});
 			});
 			return result;
-		}
+		},
+    path: function() {
+      var that = this;
+      var path =  _.reduce(that.types, function(path, type) {
+        var value = that.active_filters[type];
+        if (value != null) {
+          path += type + "/" + value
+        }
+        return path;
+      }, "/");
+
+      return path;
+    }
 	};
 }]);

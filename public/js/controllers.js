@@ -1,16 +1,15 @@
-function DeployFiltersCtrl($scope, $filters) {
+function DeployFiltersCtrl($scope, $filters, $location) {
 	$scope.filters = $filters.fetch();
 	$scope.active_filters = $filters.active_filters;
 
-	$scope.updatePath = function(active_filters) {
-
+	$scope.updatePath = function() {
+    $location.path($filters.path());
 	};
 }
 
-function DeployListCtrl($scope, $route, $routeParams, $api) {
+function DeployListCtrl($scope, $route, $routeParams, $api, $filters) {
 	var	render = function() {
-		// TODO: Change api path depending on current hash.
-		$api.get('deploys').success(
+		$api.get('deploys' + $filters.path()).success(
 			function(data) {
 				$scope.deploys = data.deploys;
 			});

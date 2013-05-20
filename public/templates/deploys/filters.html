@@ -1,9 +1,9 @@
-<select ng-change="updatePath(active_filters)" ng-model="active_filters.country" ng-options="item.id as item.name for item in filters.country">
+<select ng-change="updatePath()" ng-model="active_filters.country" ng-options="item.id as item.name for item in filters.country">
 	<option value=""></option>
 </select>
-<select ng-change="updatePath(active_filters)" ng-model="active_filters.project" ng-options="item.id as item.name for item in filters.project">
+<select ng-change="updatePath()" ng-model="active_filters.project" ng-options="item.id as item.name for item in filters.project">
 	<option value=""></option>
 </select>
-<select ng-change="updatePath(active_filters)" ng-model="active_filters.environment" ng-options="item.id as item.name for item in filters.environment">	
+<select ng-change="updatePath()" ng-model="active_filters.environment" ng-options="item.id as item.name for item in filters.environment">	
 	<option value=""></option>
 </select>
