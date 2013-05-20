@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="deploys">
+  <head>
+    <meta charset="utf-8">
+    <title>Deploys timline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A deploy timeline for your projects">
+    <meta name="author" content="Jon de Andres Frias">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+		<link href="/css/style.css" rel="stylesheet" media="screen"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="/js/app.js"></script>
+  </head>
+  <body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Deploys</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+		<div class="container" ng-view>
+	</body>
+</html>
