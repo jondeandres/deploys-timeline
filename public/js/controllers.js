@@ -1,7 +1,7 @@
 function DeployFiltersCtrl($scope, $filters) {
 	$scope.filters = $filters.fetch();
-	$scope.changePath = function() {
-		// TODO: Change current path
+	$scope.updatePath = function(type, active_filters) {
+
 	};
 }
 

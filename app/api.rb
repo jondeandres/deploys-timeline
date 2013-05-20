@@ -24,7 +24,10 @@ class API < Grape::API
   namespace :filters do
     get do
       manager = FiltersManager.instance
-      manager.filters
+      {
+        filters: manager.filters,
+        types: manager.types
+      }
     end
   end
 
