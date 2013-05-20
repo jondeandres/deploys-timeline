@@ -2,6 +2,7 @@ require 'ostruct'
 require 'redis'
 require 'grape-entity'
 require 'deploy_distributor'
+require 'filters_manager'
 
 class Deploy < OpenStruct
   def self.create(attrs = {})
@@ -12,6 +13,7 @@ class Deploy < OpenStruct
 
     instance = new(attrs)
     DeployDistributor.new(instance).distribute
+    FiltersManager.instance.add_filters_for(instance)
     instance
   end
 

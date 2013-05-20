@@ -2,7 +2,7 @@ class DeployDistributor
   attr_reader :deploy
 
   def self.filters
-    @filters ||= [:country, :project, :environment]
+    FiltersManager.instance.types
   end
 
   def self.combinations

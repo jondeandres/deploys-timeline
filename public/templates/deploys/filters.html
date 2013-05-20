@@ -1,3 +1,3 @@
-<select ng-change="changePath()" ng-model="country" ng-options="item.id as item.name for item in countries"></select>
-<select ng-change="changePath()" ng-model="project" ng-options="item.id as item.name for item in projects"></select>
-<select ng-change="changePath()" ng-model="environment" ng-options="item.id as item.name for item in environments"></select>
+<select ng-change="changePath()" ng-model="country" ng-options="item.id as item.name for item in filters.country"></select>
+<select ng-change="changePath()" ng-model="project" ng-options="item.id as item.name for item in filters.project"></select>
+<select ng-change="changePath()" ng-model="environment" ng-options="item.id as item.name for item in filters.environment"></select>

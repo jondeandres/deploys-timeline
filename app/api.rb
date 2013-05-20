@@ -2,6 +2,7 @@ require 'grape'
 require 'deploy'
 require 'deploy_finder'
 require 'deploy_distributor'
+require 'filters_manager'
 
 class API < Grape::API
   format :json
@@ -22,7 +23,8 @@ class API < Grape::API
 
   namespace :filters do
     get do
-      []
+      manager = FiltersManager.instance
+      manager.filters
     end
   end
 
