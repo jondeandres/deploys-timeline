@@ -1,9 +1,9 @@
-Deploys.factory('$filters', ['$http', function($http) {
+Deploys.factory('$filters', ['$api', function($api) {
 	return {
 		fetch: function() {
 			var result = {};
 
-			$http.get(api_path('filters')).success(function(data) {
+			$api.get('filters').success(function(data) {
 				_.each(_.keys(data), function(type) {
 					filters = data[type];
 
