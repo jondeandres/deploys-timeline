@@ -29,10 +29,10 @@ Deploys.factory('$filters', ['$api', function($api) {
       var path =  _.reduce(that.types, function(path, type) {
         var value = that.active_filters[type];
         if (value != null) {
-          path += type + "/" + value
+          path += "/" + type + "/" + value
         }
         return path;
-      }, "/");
+      }, "");
 
       return path;
     }
