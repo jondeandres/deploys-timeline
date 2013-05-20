@@ -1,21 +1,5 @@
-function DeployFiltersCtrl($scope, $http) {
-	$scope.filters = {};
-
-	$http.get(api_path('filters')).success(function(data) {
-		_.each(_.keys(data), function(type) {
-			filters = data[type];
-
-			if (filters != undefined) {
-				$scope.filters[type] = _.map(filters, function(filter) {
-					return {
-						id: filter,
-						name: filter // TODO: i18n
-					};
-				});
-			}
-		});
-	});
-
+function DeployFiltersCtrl($scope, $http, $filters) {
+	$scope.filters = $filters.fetch();
 	$scope.changePath = function() {
 		// TODO: Change current path
 	};
